@@ -1,16 +1,16 @@
- body.backg {
-        background: radial-gradient(circle at top left, #ffd6e0, #ffeef7, #fff);
-        font-family: 'Quicksand', sans-serif;
-        position: relative;
-        min-height: 100vh;
-        background-image: url('wallpaper.png'); /* your nostalgia photo */
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        animation: moveBackground 20s ease-in-out infinite alternate;
-        overflow: hidden;
-      }
-
+body.backg {
+  background: radial-gradient(circle at top left, #ffd6e0, #ffeef7, #fff);
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  background-image: url('wallpaper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /* remove background-attachment: fixed */
+  animation: moveBackground 12s linear infinite;
+  overflow: hidden;
+}
       /* The “letter” look */
       .love-letter {
         background: #fffdf8;
@@ -133,8 +133,19 @@
       }
 
       /* 🌄 Slow cinematic background movement */
-      @keyframes moveBackground {
+      /* @keyframes moveBackground {
         0% { background-position: center center; filter: brightness(0.9) saturate(0.9); }
         50% { background-position: 52% 48%; filter: brightness(1) saturate(1); }
         100% { background-position: 48% 52%; filter: brightness(0.9) saturate(0.9); }
-      }
+      } */
+
+      @keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+    filter: brightness(0.9) saturate(0.9);
+  }
+  100% {
+    background-position: 100% 50%;
+    filter: brightness(1) saturate(1);
+  }
+}
