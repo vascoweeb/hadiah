@@ -105,7 +105,8 @@ and the happiest of days 💌
 </div>
 
     
-<audio src="jsprgry-till-we-meet-again.mp3" autoplay loop hidden></audio>
+<audio id="bgMusic" src="jsprgry-till-we-meet-again.mp3" loop></audio>
+
 
     <!-- Floating flowers container -->
 <div class="flowers">
@@ -115,6 +116,13 @@ and the happiest of days 💌
   <div class="flower"></div>
   <div class="flower"></div>
 </div>
+
+<script>
+document.querySelector('.btn-color').addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  music.play().catch(() => console.log("User gesture needed to play audio"));
+});
+</script>
 <script>
   (function(){
     const quotes = [
