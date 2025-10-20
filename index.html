@@ -35,8 +35,6 @@ Thank you for everything that you bring,
 Thank you for trying your hardest, 
 Thank you for being you. 
 
-With everything,
-— someone who wishes you peace and joy 
             </pre>
           </div>
           <div class="modal-footer border-0 justify-content-center">
@@ -78,7 +76,13 @@ and the happiest of days 💌
       </div>
       <div class="modal-body d-flex justify-content-center align-items-center flex-column text-center">
         <pre class="letter-text">
-
+          eventhough we are not together anymore
+          i do still thinking about you, but who knows
+          rahsia tuhan selalunya indah
+          have a blast on your birthday!
+          
+          With everything,
+          — someone who wishes you peace and joy 
         </pre>
       </div>
       <div class="modal-footer border-0 justify-content-center">
@@ -94,11 +98,14 @@ and the happiest of days 💌
         💌 Open 
       </button>
     </div>
+    <!-- Quote Generator -->
+<div id="quoteWidget" class="quote-widget">
+  <div id="quoteText" class="quote-text">Click "Inspire me" to see a quote.</div>
+  <button id="quoteBtn" class="btn btn-letter">Inspire me</button>
+</div>
 
-<audio controls autoplay loop hidden>
-  <source src="/Pulang.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
+    
+<audio src="pulang.mp3" autoplay loop hidden></audio>
 
     <!-- Floating flowers container -->
 <div class="flowers">
@@ -108,6 +115,57 @@ and the happiest of days 💌
   <div class="flower"></div>
   <div class="flower"></div>
 </div>
+<script>
+  (function(){
+    const quotes = [
+      "Some hearts never forget kindness.",
+      "Even silence can say I miss you.",
+      "Your smile still lingers in my quiet moments.",
+      "May every small joy find its way to you today.",
+      "Memories keep the sweetest moments warm.",
+      "You are more loved than the words you hear.",
+      "Soft wishes and warm thoughts — always for you.",
+      "Wherever you are, may gentle peace be with you."
+    ];
+
+    const btn = document.getElementById('quoteBtn');
+    const textEl = document.getElementById('quoteText');
+
+    // helper to pick a different quote than current
+    function getRandomQuote(current) {
+      if (quotes.length === 0) return "";
+      let next;
+      do {
+        next = quotes[Math.floor(Math.random() * quotes.length)];
+      } while (quotes.length > 1 && next === current);
+      return next;
+    }
+
+    btn.addEventListener('click', () => {
+      // animate out
+      textEl.classList.remove('show');
+      textEl.classList.add('enter');
+
+      setTimeout(() => {
+        // set new quote
+        const current = textEl.dataset.current || "";
+        const next = getRandomQuote(current);
+        textEl.textContent = next;
+        textEl.dataset.current = next;
+
+        // animate in
+        textEl.classList.remove('enter');
+        textEl.classList.add('show');
+      }, 250); // timing matches CSS transitions
+    });
+
+    // initialize small entrance
+    window.addEventListener('load', () => {
+      textEl.classList.add('show');
+    });
+  })();
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const textElement = document.querySelector(".letter-text");
@@ -129,7 +187,3 @@ document.addEventListener("DOMContentLoaded", function () {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
-
-
-
